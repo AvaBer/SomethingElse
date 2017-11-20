@@ -20,12 +20,8 @@ public class GameBoard {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
                 tile = new Tile();
-                if ((i == 0 || i == board.length - 1) || (j == 0 || j == board[i].length -1))
+                if ((i == 0 || i == board.length - 1) || (j == 0 || j == board[i].length - 1))
                     tile.setTileObject(new Wall());
-                if (i == 1 && j == 1) {
-                    player = new Player(new Position(i, j));
-                    tile.setTileObject(player);
-                }
                 board[i][j] = tile;
             }
         }
@@ -53,9 +49,16 @@ public class GameBoard {
         }
     }
 
+    public Tile getTileAt(Position position) {
+        try {
+            return board[position.getY()][position.getX()];
+        } catch (IndexOutOfBoundsException e) {
+            return null;
+        }
+    }
+
     public void showPlayerPosition() {
         System.out.println(getPlayer().getPlayerPosition().getPosition());
     }
-
 
 }

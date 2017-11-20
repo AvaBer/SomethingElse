@@ -2,29 +2,23 @@ package somethingelse.position;
 
 public class MoveAction {
 
-    private Position position;
-
     public MoveAction() {
     }
 
-    public MoveAction(Position position) {
-        this.position = position;
-    }
-
-    public Position up() {
+    public Position up(Position position) {
         return new Position(position.getY() - 1, position.getX());
     }
 
-    public Position down() {
+    public Position down(Position position) {
         return new Position(position.getY() + 1, position.getX());
     }
 
-    public Position left() {
+    public Position left(Position position) {
         return new Position(position.getY(), position.getX() - 1);
     }
 
-    public Position right() {
-        return new Position(position.getY(), position.getX() - 1);
+    public Position right(Position position) {
+        return new Position(position.getY(), position.getX() + 1);
     }
 
 }

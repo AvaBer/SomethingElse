@@ -1,15 +1,10 @@
 package somethingelse.model;
 
-import somethingelse.position.MoveAction;
 import somethingelse.position.Position;
 
 public class Player implements TileObject {
     private Position playerPosition;
-    private MoveAction moveAction;
-    public Player(Position playerPosition) {
-        setPlayerPosition(playerPosition);
-        moveAction = new MoveAction(playerPosition);
-    }
+
     @Override
     public ObjectKind getKind() {
         return ObjectKind.Player;
@@ -26,9 +21,5 @@ public class Player implements TileObject {
 
     public Position getPlayerPosition() {
         return playerPosition;
-    }
-
-    public MoveAction move() {
-        return moveAction;
     }
 }
